@@ -63,8 +63,8 @@ def apply_coupons(cart, coupons)
           pp "Up to #{coupons[i][:num]} to be discounted."
           if cart[j][:count] < coupons[i][:num]
             pp "There are less items in the cart, than on the coupon."
+            number_discounted = cart[j][:count]
             cart[j][:count] = 0
-            number_discounted = coupons[i][:num]
             pp "Updated cart: #{cart[j]}"
             pp "Number to be discounted = #{number_discounted}"
           elsif cart[j][:count] == coupons[i][:num]
