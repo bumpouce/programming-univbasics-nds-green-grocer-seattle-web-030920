@@ -102,10 +102,10 @@ def checkout(cart, coupons)
   cart = apply_clearance (cart)
   pp "Applied clearance prices: #{cart}"
   
-  i = 0 
-  while i < cart.length do
-    cart_total += cart[i][:price] * cart[i][:count]
-    i += 1 
-  end
+#  i = 0 
+#  while i < cart.length do
+#    cart_total += cart[i][:price] * cart[i][:count]
+#    i += 1 
+#  end
   cart_total
 end
