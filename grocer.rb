@@ -65,7 +65,7 @@ def apply_coupons(cart, coupons)
         individual_price = coupons[i][:price] / coupons[i][:num]
         clearance_flag = true
         
-        cart << {:item => coupon_item, :price => individual_price, :clearance => true, :count =>coupons[i][:num]}
+        cart << [{:item => coupon_item, :price => individual_price, :clearance => true, :count =>coupons[i][:num]}]
 
         pp "Updated cart: #{cart}"
     end
