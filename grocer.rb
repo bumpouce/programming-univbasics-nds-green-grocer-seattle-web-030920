@@ -52,19 +52,28 @@ def apply_coupons(cart, coupons)
       pp "Coupon for #{coupon[i][:item]} cannot be applied. None found in cart."
 
     else       
-        cart << {:item => coupons[i][:item] + " W/COUPON", :price => coupons[i][:cost] / coupons[i][:num], :clearance => true, :count => coupons[i][:num]}
-        
-        #update cart item count
-        j = 0 
-        while j < cart.length do
-          if cart[j][:item] == search_item[:item]
-            cart[j][:count] -= coupons[i][:num]
-          end
-          j += 1 
-        end
-  
+      #update cart item count
+      
+      j = 0 
+      while j < cart.length do
+        if cart[j][:item] == search_item[:item] 
 
-        pp "Updated cart: #{cart}"
+          if cart[j][:count] < coupons[i][:num]
+            number_discounted = cart[j][:num]
+            cart[j][:count] = 0
+          else if cart[j][:count] == coupons[i][:num]
+            number_discounted = coupons[i][:num]
+            cart[j][:count] = 0
+          else if cart[j][:count] > coupons[i][:num]
+            number_discounted = coupons[i][:num]
+            cart[j][:count] -= coupons[i][:num]
+        end
+        j += 1 
+      end
+      
+      cart << {:item => coupons[i][:item] + " W/COUPON", :price => coupons[i][:cost] / coupons[i][:num], :clearance => true, :count => number_discounted}
+
+      pp "Updated cart: #{cart}"
     end
 
     i += 1 
