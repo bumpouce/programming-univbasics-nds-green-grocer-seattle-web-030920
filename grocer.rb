@@ -50,31 +50,28 @@ def apply_coupons(cart, coupons)
     #if it's not found, move to next coupon
     if !search_item
       pp "Coupon for #{coupon[i][:item]} cannot be applied. None found in cart."
-    end
+#    end
 
     #if found, compare number in cart with number on coupon
     #case 1: number in cart < coupon, coupon invalid
     #case 2: number in cart == coupon, apply coupon
     #case 3: number in cart
 
-    if search_item[:count] < coupons[i][:num]
-        pp "Not enough #{coupons[i][:item]}s to apply coupon."
-        pp "Initial coupon: #{coupons[i]}"
-        
+#    if search_item[:count] < coupons[i][:num]
+#        pp "Not enough #{coupons[i][:item]}s to apply coupon."
+#        pp "Initial coupon: #{coupons[i]}"
+ 
+    else       
         cart << {:item => coupons[i][:item] + " W/ COUPON"}
-#        individual_price = coupons[i][:price] / coupons[i][:num]
-#        clearance_flag = true
-        
-#        cart << [{:item => coupon_item, :price => individual_price, :clearance => true, :count =>coupons[i][:num]}]
-
         pp "Updated cart: #{cart}"
     end
-    if search_item[:count] == coupons[i][:num]
-        pp "The cart contains #{coupons[i][:num]} #{coupons[i][:item]}s.  Coupon applies to all."
-    end
-    if  search_item[:count] > coupons[i][:num]
-        pp "The cart contains #{search_item[i][:count]} #{coupons[i][:item]}s.  Coupon applies to #{coupons[i][:num]}."
-    end
+    
+#    if search_item[:count] == coupons[i][:num]
+#        pp "The cart contains #{coupons[i][:num]} #{coupons[i][:item]}s.  Coupon applies to all."
+ #   end
+#    if  search_item[:count] > coupons[i][:num]
+#        pp "The cart contains #{search_item[i][:count]} #{coupons[i][:item]}s.  Coupon applies to #{coupons[i][:num]}."
+#    end
   
     i += 1 
   end
