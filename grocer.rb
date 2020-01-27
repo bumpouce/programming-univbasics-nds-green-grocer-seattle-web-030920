@@ -52,8 +52,9 @@ def apply_coupons(cart, coupons)
       when search_item[:count] < coupons[i][:num]
         pp "Not enough #{coupons[i][:item]}s to apply coupon."
       when search_item[:count] == coupons[i][:num]
-        
+        pp "The cart contains #{coupons[i][:num]} #{coupons[i][:item]}s.  Coupon applies to all."
       when search_item[:count] > coupons[i][:num]
+        pp "The cart contains #{search_item[i][:count]} #{coupons[i][:item]}s.  Coupon applies to #{coupons[i][:num]}."
     end
     #if found, compare number in cart with number on coupon
     #case 1: number in cart < coupon, coupon invalid
