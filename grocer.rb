@@ -65,7 +65,6 @@ def apply_coupons(cart, coupons)
           elsif cart[j][:count] > coupons[i][:num]
             cart[j][:count] -= coupons[i][:num]
           end 
-          j = cart.length
           
         end
         j += 1 
