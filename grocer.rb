@@ -61,8 +61,10 @@ def apply_coupons(cart, coupons)
 
           if cart[j][:count] > coupons[i][:num]
             cart[j][:count] -= coupons[i][:num]
-          else
+          elsif cart[j][:count] == coupons[i][:num]
             cart[j][:count] = 0
+          else
+            no_coupon = true
           end 
           
         end
@@ -94,7 +96,6 @@ def checkout(cart, coupons)
   
   pp "Initial cart: #{cart}"
   cart = consolidate_cart(cart)
-#  pp "Consolidated cart: #{cart}"
   cart = apply_coupons(cart, coupons)
 #  pp "Added coupons: #{cart}"
   cart = apply_clearance (cart)
