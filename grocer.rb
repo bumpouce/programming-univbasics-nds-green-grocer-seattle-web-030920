@@ -11,11 +11,6 @@ end
 
 def consolidate_cart(cart)
   
-  #go through each item in cart
-  #check if item is already listed with find_item_by_name_in_collection
-  #if found, increment
-  #if not found, add hash to consolidated_cart Array
-  
   i = 0 
   sorted_cart = []
   
@@ -41,9 +36,28 @@ end
 
 def apply_coupons(cart, coupons)
 
-  pp "Coupons: #{coupons}"
+  #ensure cart is sorted
+  cart = consolidate_cart(cart)
   
+  i = 0
   
+  #for each coupon, look for the item in the cart
+  while i < coupons.length do
+    search_item = find_item_by_name_in_collection(coupons[i][:item], cart)
+    #if it's not found, move to next coupon
+    if !search_item
+      pp "Coupon for #{coupon[i][:item]} cannot be applied. None found"
+    else
+      
+    #if found, compare number in cart with number on coupon
+    #case 1: number in cart < coupon, coupon invalid
+    #case 2: number in cart == coupon, apply coupon
+    #case 3: number in cart
+    
+    end
+
+    i += 1 
+  end
 
 end
 
