@@ -41,7 +41,7 @@ def apply_coupons(cart, coupons)
   pp "# of Coupons = #{coupons.length}"
   
   i = 0
-  return if !coupons.length
+  return if coupons.length == 0
   
     #for each coupon, look for the item in the cart
     while i < coupons.length do
