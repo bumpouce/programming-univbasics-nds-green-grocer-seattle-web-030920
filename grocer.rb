@@ -49,9 +49,11 @@ def apply_coupons(cart, coupons)
       pp "Coupon for #{coupon[i][:item]} cannot be applied. None found"
     else
     case apply_coupon
-      when search_item[:num]
-      when
-      when
+      when search_item[:count] < coupons[i][:num]
+        pp "Not enough #{coupons[i][:item]}s to apply coupon."
+      when search_item[:count] == coupons[i][:num]
+        
+      when search_item[:count] > coupons[i][:num]
     end
     #if found, compare number in cart with number on coupon
     #case 1: number in cart < coupon, coupon invalid
