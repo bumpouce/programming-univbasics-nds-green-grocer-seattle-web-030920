@@ -51,13 +51,19 @@ def apply_coupons(cart, coupons)
     if !search_item
       pp "Coupon for #{coupon[i][:item]} cannot be applied. None found in cart."
 
-    #if found, compare number in cart with number on coupon
-    #case 1: number in cart < coupon, coupon invalid
-    #case 2: number in cart == coupon, apply coupon
-    #case 3: number in cart
-
     else       
         cart << {:item => coupons[i][:item] + " W/COUPON", :price => coupons[i][:cost] / coupons[i][:num], :clearance => true, :count => coupons[i][:num]}
+        
+        #update cart item count
+        j = 0 
+        while j < cart.length do
+          if cart[j][:item] == search_item[:item]
+            cart[j][:count] -= coupons[i][:num]
+          end
+          j += 1 
+        end
+  
+
         pp "Updated cart: #{cart}"
     end
 
