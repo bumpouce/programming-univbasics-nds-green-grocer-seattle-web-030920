@@ -67,7 +67,7 @@ def apply_coupons(cart, coupons)
           else 
             apply_coupon = false
           end 
-          
+          j = cart.length
         end
         j += 1 
       end
