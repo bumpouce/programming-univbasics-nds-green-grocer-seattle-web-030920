@@ -25,12 +25,17 @@ def consolidate_cart(cart)
       cart[i][:count] = 1
       sorted_cart << cart[i]
     else
-      "Found repeat item #{item_name}"
+      j = 0
+      while j < sorted_cart.length do
+        if find_item_by_name_in_collection(item_name, sorted_cart)
+          sorted_cart[j][:count] += 1
+        end
+        j += 1 
+      end
     end
     i += 1
   end
   
-  pp "Sorted cart: #{sorted_cart}" 
   sorted_cart
 end
 
