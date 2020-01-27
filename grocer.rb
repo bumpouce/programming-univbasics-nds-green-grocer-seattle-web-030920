@@ -88,6 +88,7 @@ def apply_clearance(cart)
       pp "Original price: #{cart[i][:price]}"
       cart[i][:price] = (cart[i][:price] * 0.8).round(2)
       pp "Clearance price: #{cart[i][:price]}"
+    end
     i += 1 
   end
 end
