@@ -105,6 +105,7 @@ def checkout(cart, coupons)
   i = 0 
   while i < cart.length do
     cart_total += cart[i][:price] * cart[i][:count]
+    pp "#{cart[i][:count]} #{cart[i][:item]}s for #{cart[i][:price]}"
     i += 1 
   end
   cart_total
