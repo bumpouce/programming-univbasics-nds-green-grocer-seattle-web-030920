@@ -64,7 +64,7 @@ def apply_coupons(cart, coupons)
           elsif cart[j][:count] == coupons[i][:num]
             cart[j][:count] = 0
           else
-
+            coupons[i][:num] = 0
           end 
           
         end
