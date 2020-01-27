@@ -20,7 +20,11 @@ def consolidate_cart(cart)
   sorted_cart = []
   
   while i < cart.length do
-    pp cart[i]
+    item_name = cart[i][:item]
+    if !find_item_by_name_in_collection(item_name, sorted_cart)
+      sorted_cart << cart[i]
+    else
+      
     i += 1
   end
   
