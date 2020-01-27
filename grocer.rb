@@ -73,7 +73,8 @@ def apply_coupons(cart, coupons)
       end
       
       if apply_coupon
-      cart << {:item => coupons[i][:item] + " W/COUPON", :price => coupons[i][:cost] / coupons[i][:num], :clearance => clearance_flag, :count => coupons[i][:num]}
+        pp "Applying coupon for #{coupon[i][:item]}"
+        cart << {:item => coupons[i][:item] + " W/COUPON", :price => coupons[i][:cost] / coupons[i][:num], :clearance => clearance_flag, :count => coupons[i][:num]}
       end
     end
     i += 1 
