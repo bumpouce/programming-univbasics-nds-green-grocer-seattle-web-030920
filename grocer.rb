@@ -41,8 +41,9 @@ def apply_coupons(cart, coupons)
   pp "# of Coupons = #{coupons.length}"
   
   i = 0
-  return if coupons.length == 0
-  
+  if coupons.length == 0
+    return cart
+  end  
     #for each coupon, look for the item in the cart
     while i < coupons.length do
       search_item = find_item_by_name_in_collection(coupons[i][:item], cart)
