@@ -80,7 +80,13 @@ def apply_coupons(cart, coupons)
 end
 
 def apply_clearance(cart)
+  i = 0 
+  clearance_cart = []
   
+  while i < cart.length do
+    cart[i]
+    i += 1 
+  end
 end
 
 def checkout(cart, coupons)
