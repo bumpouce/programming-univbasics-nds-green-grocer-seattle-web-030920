@@ -94,18 +94,18 @@ end
 def checkout(cart, coupons)
   cart_total = 0 
   
-  pp "Initial cart: #{cart}"
-  cart = consolidate_cart(cart)
+#  pp "Initial cart: #{cart}"
+#  cart = consolidate_cart(cart)
 #  pp "Consolidated cart: #{cart}"
 #  cart = apply_coupons(cart, coupons)
 #  pp "Added coupons: #{cart}"
 #  cart = apply_clearance (cart)
 #  pp "Applied clearance prices: #{cart}"
   
-#  i = 0 
-#  while i < cart.length do
-#    cart_total += cart[i][:price] * cart[i][:count]
-#    i += 1 
-#  end
+  i = 0 
+  while i < cart.length do
+    cart_total += cart[i][:price] * cart[i][:count]
+    i += 1 
+  end
   cart_total
 end
