@@ -56,20 +56,23 @@ def apply_coupons(cart, coupons)
       j = 0 
       
       while j < cart.length do
+        apply_coupon = true
         if cart[j][:item] == search_item[:item] 
           clearance_flag = cart[j][:clearance]
 
           if cart[j][:count] > coupons[i][:num]
             cart[j][:count] -= coupons[i][:num]
-          else
+          elsif cart[j][:count] == coupons[i][:num]
             cart[j][:count] = 0
+          else 
+            apply_coupon = false
           end 
           
         end
         j += 1 
       end
       
-      cart << {:item => coupons[i][:item] + " W/COUPON", :price => coupons[i][:cost] / coupons[i][:num], :clearance => clearance_flag, :count => coupons[i][:num]}
+      cart << {:item => coupons[i][:item] + " W/COUPON", :price => coupons[i][:cost] / coupons[i][:num], :clearance => clearance_flag, :count => coupons[i][:num], :apply_coupon => apply_coupon}
 
       end
       i += 1 
