@@ -57,7 +57,8 @@ def apply_coupons(cart, coupons)
     #case 3: number in cart
 
     else       
-        cart << {:item => coupons[i][:item] + " W/ COUPON", :clearance => true, :count => coupons[i][:num]}
+        individual_price = coupons[i][:price] / coupons[i][:num]
+        cart << {:item => coupons[i][:item] + " W/ COUPON", :price => individual_price, :clearance => true, :count => coupons[i][:num]}
         pp "Updated cart: #{cart}"
     end
 
