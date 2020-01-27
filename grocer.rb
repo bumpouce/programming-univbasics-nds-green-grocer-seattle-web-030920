@@ -61,9 +61,9 @@ def apply_coupons(cart, coupons)
         pp "Not enough #{coupons[i][:item]}s to apply coupon."
         pp "Initial coupon: #{coupons[i]}"
         
-        coupon_item = coupons[i][:item] && " W/ COUPON"
-        individual_price = coupons[i][:price] / coupons[i][:num]
-        clearance_flag = true
+#        coupon_item = coupons[i][:item] && " W/ COUPON"
+#        individual_price = coupons[i][:price] / coupons[i][:num]
+#        clearance_flag = true
         
 #        cart << [{:item => coupon_item, :price => individual_price, :clearance => true, :count =>coupons[i][:num]}]
 
