@@ -45,13 +45,13 @@ def apply_coupons(cart, coupons)
   while i < coupons.length do
     search_item = find_item_by_name_in_collection(coupons[i][:item], cart)
     #if it's not found, move to next coupon
+    if !search_item
+      pp "Coupon for #{coupon[i][:item]} cannot be applied. None found"
+    
     #if found, compare number in cart with number on coupon
     #case 1: number in cart < coupon, coupon invalid
     #case 2: number in cart == coupon, apply coupon
     #case 3: number in cart
-  
-    if !search_item
-      pp "Coupon for #{coupon[i][:item]} cannot be applied. None found"
     else if search_item[:count] < coupons[i][:num]
         pp "Not enough #{coupons[i][:item]}s to apply coupon."
     else if search_item[:count] == coupons[i][:num]
