@@ -26,7 +26,7 @@ def consolidate_cart(cart)
           sorted_cart[j][:count] += 1
           j = sorted_cart.length
           
-          pp "There are #{sorted_cart[j][:count]} #{sorted_cart[j][:item] in the cart."
+          pp "There are #{sorted_cart[j][:count]} #{sorted_cart[j][:item]} in the cart."
         end
         j += 1 
       end
