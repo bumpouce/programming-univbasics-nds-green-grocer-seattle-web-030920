@@ -92,19 +92,20 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
-  # Consult README for inputs and outputs
-  #
-  # This method should call
-  # * consolidate_cart
-  # * apply_coupons
-  # * apply_clearance
-  #
-  # BEFORE it begins the work of calculating the total (or else you might have
-  # some irritated customers
+  cart_total = 0 
   
+  pp "Initial cart: #{cart}"
   cart = consolidate_cart(cart)
+  pp "Consolidated cart: #{cart}"
   cart = apply_coupons(cart, coupons)
+  pp "Added coupons: #{cart}"
   cart = apply_clearance (cart)
+  pp "Applied clearance prices: #{cart}"
   
-  
+  i = 0 
+  while i < cart.length do
+    
+    i += 1 
+  end
+  cart_total
 end
