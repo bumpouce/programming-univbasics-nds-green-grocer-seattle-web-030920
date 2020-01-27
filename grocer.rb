@@ -36,50 +36,43 @@ end
 
 def apply_coupons(cart, coupons)
 
-  #ensure cart is sorted
-#  cart = consolidate_cart(cart)
-  pp "# of Coupons = #{coupons.length}"
-  
   i = 0
   if coupons.length == 0
     return cart
   end  
-    #for each coupon, look for the item in the cart
-    while i < coupons.length do
-      search_item = find_item_by_name_in_collection(coupons[i][:item], cart)
+  
+  #for each coupon, look for the item in the cart
+  while i < coupons.length do
+    search_item = find_item_by_name_in_collection(coupons[i][:item], cart)
 
-      #if it's not found, move to next coupon
-      if !search_item
-        pp "Coupon for #{coupon[i][:item]} cannot be applied. None found in cart."
+    #if it's not found, move to next coupon
+    if !search_item
+      pp "Coupon for #{coupon[i][:item]} cannot be applied. None found in cart."
 
-      else       
-        #update cart item count
+    else       
+      #update cart item count
         
-        j = 0 
-        number_discounted = 0 
-        
-        while j < cart.length do
-          if cart[j][:item] == search_item[:item] 
-            pp "#{cart[j][:count]} #{cart[j][:item]}s found in cart."
-            pp "Up to #{coupons[i][:num]} to be discounted."
-          
-            clearance_flag = cart[j][:clearance]
-            if cart[j][:count] < coupons[i][:num]
-              cart[j][:count] = 0
-            elsif cart[j][:count] == coupons[i][:num]
-              cart[j][:count] = 0
-            elsif cart[j][:count] > coupons[i][:num]
-              cart[j][:count] -= coupons[i][:num]
-            end 
-            j = cart.length
-          
-          end
-          j += 1 
-        end
+      j = 0 
+      number_discounted = 0 
       
-        cart << {:item => coupons[i][:item] + " W/COUPON", :price => coupons[i][:cost] / coupons[i][:num], :clearance => clearance_flag, :count => coupons[i][:num]}
+      while j < cart.length do
+        if cart[j][:item] == search_item[:item] 
+          clearance_flag = cart[j][:clearance]
+          if cart[j][:count] < coupons[i][:num]
+            cart[j][:count] = 0
+          elsif cart[j][:count] == coupons[i][:num]
+            cart[j][:count] = 0
+          elsif cart[j][:count] > coupons[i][:num]
+            cart[j][:count] -= coupons[i][:num]
+          end 
+          j = cart.length
+          
+        end
+        j += 1 
+      end
+      
+      cart << {:item => coupons[i][:item] + " W/COUPON", :price => coupons[i][:cost] / coupons[i][:num], :clearance => clearance_flag, :count => coupons[i][:num]}
 
-        pp "Updated cart: #{cart}"
       end
       i += 1 
     end
