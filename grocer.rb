@@ -63,17 +63,15 @@ def apply_coupons(cart, coupons)
           pp "#{cart[j][:count]} #{cart[j][:item]}s found in cart."
           pp "Up to #{coupons[i][:num]} to be discounted."
           
-          if cart[j][:clearance]
-            if cart[j][:count] < coupons[i][:num]
-              cart[j][:count] = 0
-            elsif cart[j][:count] == coupons[i][:num]
-              cart[j][:count] = 0
-            elsif cart[j][:count] > coupons[i][:num]
-              cart[j][:count] -= coupons[i][:num]
-            end
-            cart << {:item => coupons[i][:item] + " W/COUPON", :price => coupons[i][:cost] / coupons[i][:num], :clearance => true, :count => coupons[i][:num]}
-            j = cart.length
+          if cart[j][:count] < coupons[i][:num]
+            cart[j][:count] = 0
+          elsif cart[j][:count] == coupons[i][:num]
+            cart[j][:count] = 0
+          elsif cart[j][:count] > coupons[i][:num]
+            cart[j][:count] -= coupons[i][:num]
           end
+          cart << {:item => coupons[i][:item] + " W/COUPON", :price => coupons[i][:cost] / coupons[i][:num]:clearance => true, :count => coupons[i][:num]}
+          j = cart.length
         end
         j += 1 
       end
