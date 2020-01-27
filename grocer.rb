@@ -53,7 +53,6 @@ def apply_coupons(cart, coupons)
       #update cart item count
         
       j = 0 
-      number_discounted = 0 
       
       while j < cart.length do
         if cart[j][:item] == search_item[:item] 
@@ -83,7 +82,6 @@ def apply_clearance(cart)
 
   while i < cart.length do
     if cart[i][:clearance]
-      pp "#{cart[i][:item]} is on clearance"
       cart[i][:price] = (cart[i][:price] * 0.8).round(3)
     end
     i += 1 
