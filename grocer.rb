@@ -68,6 +68,7 @@ def apply_coupons(cart, coupons)
             number_discounted = coupons[i][:num]
             cart[j][:count] -= coupons[i][:num]
           end
+          j = cart.length
         end
         j += 1 
       end
