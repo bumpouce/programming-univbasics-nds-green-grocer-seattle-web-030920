@@ -66,7 +66,8 @@ def apply_coupons(cart, coupons)
         clearance_flag = true
         
         cart << {:item => coupon_item, :price => individual_price, :clearance => true, :count =>coupons[i][:num]}
-        pp "Transformed coupon: #{coupons[i]}"
+
+        pp "Updated cart: #{cart}"
     end
     if search_item[:count] == coupons[i][:num]
         pp "The cart contains #{coupons[i][:num]} #{coupons[i][:item]}s.  Coupon applies to all."
