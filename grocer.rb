@@ -42,7 +42,7 @@ def apply_coupons(cart, coupons)
   
   i = 0
   
-  if !coupons.length
+  if coupons.length == 0
     pp "There are no coupons."
     return cart
   end
