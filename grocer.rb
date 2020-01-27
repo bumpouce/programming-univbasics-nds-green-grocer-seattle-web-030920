@@ -26,6 +26,7 @@ def consolidate_cart(cart)
       sorted_cart << cart[i]
     else
       "Found repeat item #{item_name}"
+    end
     i += 1
   end
   
