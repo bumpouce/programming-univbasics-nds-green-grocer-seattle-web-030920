@@ -60,7 +60,7 @@ def apply_coupons(cart, coupons)
     if search_item[:count] < coupons[i][:num]
         pp "Not enough #{coupons[i][:item]}s to apply coupon."
         pp "Initial coupon: #{coupons[i]}"
-        coupons[i][:item] = "#{coupons[i][:item]} W/ COUPON"
+        coupons[i][:item] = coupons[i][:item] && " W/ COUPON"
         coupons[i][:price] = coupons[i][:price] / coupons[i][:num]
         coupons[i][:clearance] = true 
         pp "Transformed coupon: #{coupons[i]}"
