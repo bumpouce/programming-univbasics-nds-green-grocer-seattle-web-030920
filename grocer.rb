@@ -71,14 +71,12 @@ def apply_coupons(cart, coupons)
             elsif cart[j][:count] > coupons[i][:num]
               cart[j][:count] -= coupons[i][:num]
             end
+            cart << {:item => coupons[i][:item] + " W/COUPON", :price => coupons[i][:cost] / coupons[i][:num], :clearance => true, :count => coupons[i][:num]}
             j = cart.length
           end
         end
         j += 1 
       end
-      
-      cart << {:item => coupons[i][:item] + " W/COUPON", :price => coupons[i][:cost] / coupons[i][:num], :clearance => true, :count => coupons[i][:num]}
-
       pp "Updated cart: #{cart}"
     end
 
