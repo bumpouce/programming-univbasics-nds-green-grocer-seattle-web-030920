@@ -67,6 +67,7 @@ def apply_coupons(cart, coupons)
           else if cart[j][:count] > coupons[i][:num]
             number_discounted = coupons[i][:num]
             cart[j][:count] -= coupons[i][:num]
+          end
         end
         j += 1 
       end
