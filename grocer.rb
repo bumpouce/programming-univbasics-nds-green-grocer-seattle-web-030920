@@ -58,13 +58,11 @@ def apply_coupons(cart, coupons)
       while j < cart.length do
         if cart[j][:item] == search_item[:item] 
           clearance_flag = cart[j][:clearance]
-          coupon_count
+
           if cart[j][:count] > coupons[i][:num]
             cart[j][:count] -= coupons[i][:num]
-          elsif cart[j][:count] == coupons[i][:num]
-            cart[j][:count] = 0
           else
-            coupons[i][:num] = 0
+            cart[j][:count] = 0
           end 
           
         end
