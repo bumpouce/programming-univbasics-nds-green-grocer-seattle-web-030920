@@ -72,11 +72,12 @@ def apply_coupons(cart, coupons)
         j += 1 
       end
       
-      cart << {:item => coupons[i][:item] + " W/COUPON", :price => coupons[i][:cost] / coupons[i][:num], :clearance => clearance_flag, :count => coupons[i][:num], :apply_coupon => apply_coupon}
-
+      if apply_coupon
+      cart << {:item => coupons[i][:item] + " W/COUPON", :price => coupons[i][:cost] / coupons[i][:num], :clearance => clearance_flag, :count => coupons[i][:num]}
       end
-      i += 1 
     end
+    i += 1 
+  end
   cart
 end
 
@@ -102,7 +103,7 @@ def checkout(cart, coupons)
   cart = apply_coupons(holder, coupons)
   pp "Added coupons: #{cart}"
   cart = apply_clearance (cart)
-#  pp "Applied clearance prices: #{cart}"
+  pp "Applied clearance prices: #{cart}"
   
   i = 0 
   while i < cart.length do
