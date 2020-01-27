@@ -60,16 +60,13 @@ def apply_coupons(cart, coupons)
       while j < cart.length do
         if cart[j][:item] == search_item[:item] 
           pp "#{cart[j][:count]} #{cart[j][:item]}s found in cart."
-          pp "#{coupons[i][:num]} to be discounted."
+          pp "Up to #{coupons[i][:num]} to be discounted."
           if cart[j][:count] < coupons[i][:num]
-            number_discounted = cart[j][:num]
-            cart[j][:count] = 0
+            pp "There are less items in the cart, than on the coupon."
           elsif cart[j][:count] == coupons[i][:num]
-            number_discounted = coupons[i][:num]
-            cart[j][:count] = 0
+            pp "There are the same number of items on the coupon as in the cart."
           elsif cart[j][:count] > coupons[i][:num]
-            number_discounted = coupons[i][:num]
-            cart[j][:count] -= coupons[i][:num]
+            pp "There are more items in the cart, than on the coupon."
           end
           j = cart.length
         end
