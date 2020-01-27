@@ -59,8 +59,7 @@ def apply_coupons(cart, coupons)
 
     if search_item[:count] < coupons[i][:num]
         pp "Not enough #{coupons[i][:item]}s to apply coupon."
-        individual_price = coupons[i][:price] / coupons[i][:num](2)
-        cart << [{"#{coupons[i][:item]} W/ COUPON", ]
+        pp "Coupon: #{coupons[i]}"
     end
     if search_item[:count] == coupons[i][:num]
         pp "The cart contains #{coupons[i][:num]} #{coupons[i][:item]}s.  Coupon applies to all."
