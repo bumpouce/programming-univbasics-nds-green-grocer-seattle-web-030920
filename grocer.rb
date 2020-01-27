@@ -49,7 +49,7 @@ def apply_coupons(cart, coupons)
       pp "Coupon for #{coupon[i][:item]} cannot be applied. None found"
     else
     case apply_coupon
-      when
+      when search_item[:num]
       when
       when
     end
