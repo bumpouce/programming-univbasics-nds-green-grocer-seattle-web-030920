@@ -44,7 +44,7 @@ def apply_coupons(cart, coupons)
   
   if coupons.length == 0
     pp "There are no coupons."
-    break
+    return
   end
     #for each coupon, look for the item in the cart
     while i < coupons.length do
