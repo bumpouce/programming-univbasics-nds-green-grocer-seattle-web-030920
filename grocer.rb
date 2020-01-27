@@ -49,7 +49,7 @@ def apply_coupons(cart, coupons)
     
     #if it's not found, move to next coupon
     if !search_item
-      pp "Coupon for #{coupon[i][:item]} cannot be applied. None found"
+      pp "Coupon for #{coupon[i][:item]} cannot be applied. None found in cart."
     end
 
     #if found, compare number in cart with number on coupon
