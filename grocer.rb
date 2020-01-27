@@ -37,7 +37,7 @@ end
 def apply_coupons(cart, coupons)
 
   #ensure cart is sorted
-  cart = consolidate_cart(cart)
+#  cart = consolidate_cart(cart)
   pp "# of Coupons = #{coupons.length}"
   
   i = 0
