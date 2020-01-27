@@ -55,7 +55,8 @@ def apply_coupons(cart, coupons)
       #update cart item count
       
       j = 0 
-      number_discounted = 0
+      number_discounted = 0 
+      
       while j < cart.length do
         if cart[j][:item] == search_item[:item] 
 
